@@ -10,7 +10,7 @@
 		34193FE42813EB3D005452A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34193FE32813EB3D005452A4 /* AppDelegate.swift */; };
 		34193FE82813EB3D005452A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34193FE72813EB3D005452A4 /* ViewController.swift */; };
 		34193FED2813EB3F005452A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34193FEC2813EB3F005452A4 /* Assets.xcassets */; };
-		34193FF02813EB3F005452A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34193FEE2813EB3F005452A4 /* LaunchScreen.storyboard */; };
+		34193FFA2813EF63005452A4 /* BlackLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34193FF92813EF63005452A4 /* BlackLaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,8 +18,8 @@
 		34193FE32813EB3D005452A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34193FE72813EB3D005452A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		34193FEC2813EB3F005452A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		34193FEF2813EB3F005452A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34193FF12813EB3F005452A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34193FF92813EF63005452A4 /* BlackLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlackLaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +55,8 @@
 				34193FF82813EC6F005452A4 /* Resources */,
 				34193FF72813EC64005452A4 /* Application */,
 				34193FE72813EB3D005452A4 /* ViewController.swift */,
-				34193FEE2813EB3F005452A4 /* LaunchScreen.storyboard */,
 				34193FF12813EB3F005452A4 /* Info.plist */,
+				34193FF92813EF63005452A4 /* BlackLaunchScreen.storyboard */,
 			);
 			path = HookahTimer;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34193FF02813EB3F005452A4 /* LaunchScreen.storyboard in Resources */,
+				34193FFA2813EF63005452A4 /* BlackLaunchScreen.storyboard in Resources */,
 				34193FED2813EB3F005452A4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,17 +153,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		34193FEE2813EB3F005452A4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34193FEF2813EB3F005452A4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		34193FF22813EB3F005452A4 /* Debug */ = {
@@ -290,8 +279,9 @@
 				DEVELOPMENT_TEAM = 8YTHWLHV89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HookahTimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Hookah Timer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = BlackLaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -318,8 +308,9 @@
 				DEVELOPMENT_TEAM = 8YTHWLHV89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HookahTimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Hookah Timer";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = BlackLaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
