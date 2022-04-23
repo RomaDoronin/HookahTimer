@@ -10,6 +10,7 @@ import UIKit
 class ChooseSmokersViewController: UIViewController {
 
     private let tableView = UITableView()
+    private let nextButton = UIButton()
 
     private let defaultSmokersList = [
         "Рома",
@@ -24,6 +25,8 @@ class ChooseSmokersViewController: UIViewController {
 
         setupTableView()
         setupNavigationBar()
+        setupNextButton()
+        setupLayout()
     }
 
 }
@@ -56,6 +59,17 @@ extension ChooseSmokersViewController: UITableViewDataSource {
 
 }
 
+// MARK: - Actions
+
+private extension ChooseSmokersViewController {
+    
+    @objc
+    func nextButtonTapped() {
+        navigationController?.pushViewController(SimpleTimerViewController(), animated: true)
+    }
+    
+}
+
 // MARK: - Private
 
 private extension ChooseSmokersViewController {
@@ -66,14 +80,43 @@ private extension ChooseSmokersViewController {
         tableView.separatorStyle = .none
 
         tableView.register(CheckBoxCell.self, forCellReuseIdentifier: "tableViewCell")
-
-        view.addSubview(tableView)
-        tableView.prepareForAutoLayout()
-        tableView.pinToSuperviewEdges()
     }
 
     func setupNavigationBar() {
         navigationItem.title = "Выберите кто сегодня курит"
+    }
+
+    func setupNextButton() {
+        nextButton.setTitle("Дальше", for: .normal)
+        nextButton.setTitleColor(.white, for: .normal)
+        nextButton.setTitleColor(.gray, for: .highlighted)
+        nextButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+
+        nextButton.layer.cornerRadius = 10
+        nextButton.layer.borderColor = UIColor.white.cgColor
+        nextButton.layer.borderWidth = 3
+
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+    }
+
+    func setupLayout() {
+        view.addSubview(tableView)
+        view.addSubview(nextButton)
+
+        [
+            tableView,
+            nextButton,
+        ].forEach {
+            $0.prepareForAutoLayout()
+        }
+
+        tableView.pinToSuperviewEdges()
+
+        let edgeButtonSpace: CGFloat = 60
+        nextButton.leftAnchor ~= tableView.leftAnchor + edgeButtonSpace
+        nextButton.rightAnchor ~= tableView.rightAnchor - edgeButtonSpace
+        nextButton.bottomAnchor ~= view.safeAreaLayoutGuide.bottomAnchor - 20
+        nextButton.heightAnchor ~= 60
     }
 
 }

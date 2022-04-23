@@ -35,7 +35,6 @@ class CheckBoxCell: UITableViewCell {
 
         contentView.addSubview(checkBoxAnimationView)
         checkBoxAnimationView.prepareForAutoLayout()
-        checkBoxAnimationView.centerYAnchor ~= contentView.centerYAnchor
         checkBoxAnimationView.rightAnchor ~= contentView.rightAnchor - 20
         checkBoxAnimationView.topAnchor ~= contentView.topAnchor + 20
         checkBoxAnimationView.bottomAnchor ~= contentView.bottomAnchor - 20
