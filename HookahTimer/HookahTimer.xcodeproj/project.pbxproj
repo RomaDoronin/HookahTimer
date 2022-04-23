@@ -21,6 +21,8 @@
 		34AE8B632814383300379CB4 /* CheckBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE8B622814383300379CB4 /* CheckBoxCell.swift */; };
 		34AE8B652814457C00379CB4 /* checkBoxAnimation_black.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE8B642814457C00379CB4 /* checkBoxAnimation_black.json */; };
 		34AE8B682814508500379CB4 /* SimpleTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE8B672814508500379CB4 /* SimpleTimerViewController.swift */; };
+		34AE8B6A28146B4400379CB4 /* smoke.gif in Resources */ = {isa = PBXBuildFile; fileRef = 34AE8B6928146B4400379CB4 /* smoke.gif */; };
+		34AE8B6C28146BB900379CB4 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE8B6B28146BB900379CB4 /* iOSDevCenters+GIF.swift */; };
 		EA845007779B94F871385B79 /* Pods_HookahTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA648AA4182F4F9FC0ABDA7 /* Pods_HookahTimer.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		34AE8B622814383300379CB4 /* CheckBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxCell.swift; sourceTree = "<group>"; };
 		34AE8B642814457C00379CB4 /* checkBoxAnimation_black.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = checkBoxAnimation_black.json; path = ../../../../../../../../Downloads/checkBoxAnimation_black.json; sourceTree = "<group>"; };
 		34AE8B672814508500379CB4 /* SimpleTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTimerViewController.swift; sourceTree = "<group>"; };
+		34AE8B6928146B4400379CB4 /* smoke.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = smoke.gif; path = ../../../../../../../Downloads/smoke.gif; sourceTree = "<group>"; };
+		34AE8B6B28146BB900379CB4 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		59E378D3E1EF3161E6781855 /* Pods-HookahTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HookahTimer.debug.xcconfig"; path = "Target Support Files/Pods-HookahTimer/Pods-HookahTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		5BF98B4D247C42A52D9A29CC /* Pods-HookahTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HookahTimer.release.xcconfig"; path = "Target Support Files/Pods-HookahTimer/Pods-HookahTimer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,7 @@
 		34193FF82813EC6F005452A4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34AE8B6928146B4400379CB4 /* smoke.gif */,
 				34AE8B5F281437F000379CB4 /* Animations */,
 				34193FEC2813EB3F005452A4 /* Assets.xcassets */,
 			);
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				34193FFC2813F310005452A4 /* AutoLayout */,
+				34AE8B6B28146BB900379CB4 /* iOSDevCenters+GIF.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34193FFA2813EF63005452A4 /* BlackLaunchScreen.storyboard in Resources */,
+				34AE8B6A28146B4400379CB4 /* smoke.gif in Resources */,
 				34193FED2813EB3F005452A4 /* Assets.xcassets in Resources */,
 				34AE8B612814380600379CB4 /* checkBoxAnimation_white.json in Resources */,
 				34AE8B652814457C00379CB4 /* checkBoxAnimation_black.json in Resources */,
@@ -297,6 +304,7 @@
 			files = (
 				341940072813F337005452A4 /* UIView+Extensions.swift in Sources */,
 				341940032813F337005452A4 /* AutoLayoutOperators.swift in Sources */,
+				34AE8B6C28146BB900379CB4 /* iOSDevCenters+GIF.swift in Sources */,
 				34AE8B5E28142C7400379CB4 /* ChooseSmokersViewController.swift in Sources */,
 				34AE8B632814383300379CB4 /* CheckBoxCell.swift in Sources */,
 				341940062813F337005452A4 /* NSLayoutConstraint+Extensions.swift in Sources */,
