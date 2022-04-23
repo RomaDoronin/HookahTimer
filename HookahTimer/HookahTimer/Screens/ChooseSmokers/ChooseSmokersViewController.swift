@@ -33,7 +33,9 @@ class ChooseSmokersViewController: UIViewController {
 extension ChooseSmokersViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let checkBoxCell = tableView.cellForRow(at: indexPath) as? CheckBoxCell {
+            checkBoxCell.isChoosed.toggle()
+        }
     }
 
 }
@@ -47,10 +49,8 @@ extension ChooseSmokersViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        if let textLabel = cell.textLabel {
-            textLabel.text = defaultSmokersList[indexPath.row]
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! CheckBoxCell
+        cell.configurate(title: defaultSmokersList[indexPath.row])
         return cell
     }
 
@@ -63,7 +63,10 @@ private extension ChooseSmokersViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.separatorStyle = .none
+
+        tableView.register(CheckBoxCell.self, forCellReuseIdentifier: "tableViewCell")
+
         view.addSubview(tableView)
         tableView.prepareForAutoLayout()
         tableView.pinToSuperviewEdges()
