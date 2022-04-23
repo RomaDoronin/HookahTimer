@@ -65,7 +65,9 @@ private extension ChooseSmokersViewController {
     
     @objc
     func nextButtonTapped() {
-        navigationController?.pushViewController(SimpleTimerViewController(), animated: true)
+        let viewController = SimpleTimerViewController()
+        viewController.modalPresentationStyle = .fullScreen
+        present(viewController, animated: false)
     }
     
 }

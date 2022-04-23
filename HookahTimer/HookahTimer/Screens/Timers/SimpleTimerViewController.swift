@@ -12,13 +12,10 @@ class SimpleTimerViewController: UIViewController {
     private let centralButton = UIButton()
     private let centralButtonDefaultTitle = "Начинаем курить"
     private let centralButtonSize: CGFloat = 300
+    
+    private var stopAnimating: Bool = false
 
-    private let smokeImageView: UIImageView = {
-        let smokeGif = UIImage.gifImageWithName("smoke")
-        let imageView = UIImageView(image: smokeGif)
-        imageView.transform.rotated(by: .pi / 2)
-        return imageView
-    }()
+    private var smokeImageView: UIImageView?
 
     private var curruntSeconds: Int = 0
     private var timer: Timer?
@@ -26,6 +23,7 @@ class SimpleTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createSmokeImageView()
         setupCentralButton()
         setupLayout()
     }
@@ -47,10 +45,13 @@ private extension SimpleTimerViewController {
                 self.centralButton.titleLabel?.font = .boldSystemFont(ofSize: 60)
             }
         } completion: { _ in
-            self.showSmoke()
+            if self.timer != nil {
+                self.showSmoke()
+            }
         }
 
         if timer != nil {
+            hideSmoke()
             timer?.invalidate()
             timer = nil
             curruntSeconds = 0
@@ -88,20 +89,40 @@ private extension SimpleTimerViewController {
         centralButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
     }
     
-    private func showSmoke() {
+    func showSmoke() {
+        print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) showSmoke")
+        createSmokeImageView()
+        guard let smokeImageView = smokeImageView else { return }
         view.addSubview(smokeImageView)
-        smokeImageView.pinToSuperviewCenter()
+        smokeImageView.pinToSuperviewEdges()
 
         centralButton.removeFromSuperview()
         view.addSubview(centralButton)
         centralButton.pinToSuperviewCenter()
 
+        stopAnimating = false
+        animateSmoke()
+    }
+
+    func animateSmoke() {
         UIView.animate(withDuration: 3.0, delay: 12.0) {
-            self.smokeImageView.alpha = 0
+            print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) animate - start")
+            self.smokeImageView?.alpha = 0
         } completion: { _ in
-            self.smokeImageView.removeFromSuperview()
-            self.smokeImageView.alpha = 1
+            print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) animate - end")
+            self.smokeImageView?.alpha = 1
+            if self.stopAnimating {
+                print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) smokeImageView = nil")
+                self.smokeImageView?.removeFromSuperview()
+                self.smokeImageView = nil
+            } else {
+                self.animateSmoke()
+            }
         }
+    }
+
+    func hideSmoke() {
+        stopAnimating = true
     }
 
     func setupLayout() {
@@ -111,8 +132,6 @@ private extension SimpleTimerViewController {
             view.addSubview($0)
             $0.prepareForAutoLayout()
         }
-
-        smokeImageView.prepareForAutoLayout()
 
         centralButton.pinToSuperviewCenter()
         centralButton.widthAnchor ~= centralButtonSize
@@ -129,6 +148,13 @@ private extension SimpleTimerViewController {
         let minutesString: String = minutes < 10 ? "0\(minutes)" : "\(minutes)"
         let secondsString: String = seconds < 10 ? "0\(seconds)" : "\(seconds)"
         return "\(minutesString):\(secondsString)"
+    }
+
+    func createSmokeImageView() {
+        let smokeGif = UIImage.gifImageWithName("smoke")
+        let imageView = UIImageView(image: smokeGif).prepareForAutoLayout()
+        imageView.contentMode = .scaleAspectFill
+        smokeImageView = imageView
     }
 
 }
