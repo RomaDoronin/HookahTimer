@@ -10,8 +10,6 @@ import UIKit
 class SimpleTimerViewController: UIViewController {
 
     private let centralButton = UIButton()
-    private let centralButtonDefaultTitle = "Начинаем курить"
-    private let centralButtonSize: CGFloat = 300
     
     private var stopAnimating: Bool = false
 
@@ -23,7 +21,6 @@ class SimpleTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createSmokeImageView()
         setupCentralButton()
         setupLayout()
     }
@@ -42,7 +39,7 @@ private extension SimpleTimerViewController {
                 self.centralButton.titleLabel?.font = .boldSystemFont(ofSize: 28)
             } else {
                 self.centralButton.setTitle(self.intToTextSeconds(), for: .normal)
-                self.centralButton.titleLabel?.font = .boldSystemFont(ofSize: 60)
+                self.centralButton.titleLabel?.font = .boldSystemFont(ofSize: Сonstants.timeFontSize)
             }
         } completion: { _ in
             if self.timer != nil {
@@ -77,20 +74,31 @@ private extension SimpleTimerViewController {
 // MARK: - Private
 
 private extension SimpleTimerViewController {
+    
+    enum Сonstants {
+        static let centralButtonDefaultTitle = "Начинаем курить"
+        static let centralButtonSize: CGFloat = 300
+        static let centralButtonBorderWidth: CGFloat = 3
+        static let timeFontSize: CGFloat = 60
+    }
 
     func setupCentralButton() {
-        centralButton.setTitle(centralButtonDefaultTitle, for: .normal)
+        centralButton.setTitle(Сonstants.centralButtonDefaultTitle, for: .normal)
         centralButton.titleLabel?.font = .boldSystemFont(ofSize: 28)
         centralButton.backgroundColor = .black
-        centralButton.layer.cornerRadius = centralButtonSize / 2
+        centralButton.layer.cornerRadius = Сonstants.centralButtonSize / 2
         centralButton.layer.borderColor = UIColor.white.cgColor
-        centralButton.layer.borderWidth = 3
+        centralButton.layer.borderWidth = Сonstants.centralButtonBorderWidth
 
         centralButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
     }
-    
+
     func showSmoke() {
-        print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) showSmoke")
+        guard smokeImageView == nil else {
+            stopAnimating = false
+            return
+        }
+
         createSmokeImageView()
         guard let smokeImageView = smokeImageView else { return }
         view.addSubview(smokeImageView)
@@ -105,18 +113,18 @@ private extension SimpleTimerViewController {
     }
 
     func animateSmoke() {
-        UIView.animate(withDuration: 3.0, delay: 12.0) {
-            print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) animate - start")
-            self.smokeImageView?.alpha = 0
-        } completion: { _ in
-            print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) animate - end")
+        UIView.animate(withDuration: 3.0) {
             self.smokeImageView?.alpha = 1
-            if self.stopAnimating {
-                print("[RD_LOG]:\(#line):\((#file as NSString).lastPathComponent):\(#function) smokeImageView = nil")
-                self.smokeImageView?.removeFromSuperview()
-                self.smokeImageView = nil
-            } else {
-                self.animateSmoke()
+        } completion: { _ in
+            UIView.animate(withDuration: 3.0, delay: 12.0) {
+                self.smokeImageView?.alpha = 0
+            } completion: { _ in
+                if self.stopAnimating {
+                    self.smokeImageView?.removeFromSuperview()
+                    self.smokeImageView = nil
+                } else {
+                    self.animateSmoke()
+                }
             }
         }
     }
@@ -134,8 +142,8 @@ private extension SimpleTimerViewController {
         }
 
         centralButton.pinToSuperviewCenter()
-        centralButton.widthAnchor ~= centralButtonSize
-        centralButton.heightAnchor ~= centralButtonSize
+        centralButton.widthAnchor ~= Сonstants.centralButtonSize
+        centralButton.heightAnchor ~= Сonstants.centralButtonSize
     }
 
     func intToTextSeconds() -> String {
@@ -154,6 +162,7 @@ private extension SimpleTimerViewController {
         let smokeGif = UIImage.gifImageWithName("smoke")
         let imageView = UIImageView(image: smokeGif).prepareForAutoLayout()
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0
         smokeImageView = imageView
     }
 
