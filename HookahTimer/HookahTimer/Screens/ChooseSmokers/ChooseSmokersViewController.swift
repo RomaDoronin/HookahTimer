@@ -38,6 +38,7 @@ extension ChooseSmokersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let checkBoxCell = tableView.cellForRow(at: indexPath) as? CheckBoxCell {
             checkBoxCell.isChoosed.toggle()
+            updateNextButtonStatus()
         }
     }
 
@@ -75,6 +76,19 @@ private extension ChooseSmokersViewController {
 // MARK: - Private
 
 private extension ChooseSmokersViewController {
+    
+    func updateNextButtonStatus() {
+        for row in 0...defaultSmokersList.count {
+            if let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? CheckBoxCell {
+                if cell.isChoosed {
+                    nextButton.isEnabled = true
+                    return
+                }
+            }
+        }
+
+        nextButton.isEnabled = false
+    }
 
     func setupTableView() {
         tableView.delegate = self
@@ -92,7 +106,9 @@ private extension ChooseSmokersViewController {
         nextButton.setTitle("Дальше", for: .normal)
         nextButton.setTitleColor(.white, for: .normal)
         nextButton.setTitleColor(.gray, for: .highlighted)
+        nextButton.setTitleColor(.darkGray, for: .disabled)
         nextButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        nextButton.isEnabled = false
 
         nextButton.layer.cornerRadius = 10
         nextButton.layer.borderColor = UIColor.white.cgColor
