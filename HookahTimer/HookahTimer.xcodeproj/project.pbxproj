@@ -11,6 +11,12 @@
 		34193FE82813EB3D005452A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34193FE72813EB3D005452A4 /* ViewController.swift */; };
 		34193FED2813EB3F005452A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34193FEC2813EB3F005452A4 /* Assets.xcassets */; };
 		34193FFA2813EF63005452A4 /* BlackLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34193FF92813EF63005452A4 /* BlackLaunchScreen.storyboard */; };
+		341940032813F337005452A4 /* AutoLayoutOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34193FFD2813F336005452A4 /* AutoLayoutOperators.swift */; };
+		341940042813F337005452A4 /* Collection+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34193FFE2813F336005452A4 /* Collection+NSLayoutConstraint.swift */; };
+		341940052813F337005452A4 /* Constraintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34193FFF2813F336005452A4 /* Constraintable.swift */; };
+		341940062813F337005452A4 /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341940002813F336005452A4 /* NSLayoutConstraint+Extensions.swift */; };
+		341940072813F337005452A4 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341940012813F336005452A4 /* UIView+Extensions.swift */; };
+		341940082813F337005452A4 /* UILayoutPriority+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341940022813F336005452A4 /* UILayoutPriority+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,12 @@
 		34193FEC2813EB3F005452A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34193FF12813EB3F005452A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34193FF92813EF63005452A4 /* BlackLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlackLaunchScreen.storyboard; sourceTree = "<group>"; };
+		34193FFD2813F336005452A4 /* AutoLayoutOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutOperators.swift; sourceTree = "<group>"; };
+		34193FFE2813F336005452A4 /* Collection+NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
+		34193FFF2813F336005452A4 /* Constraintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraintable.swift; sourceTree = "<group>"; };
+		341940002813F336005452A4 /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
+		341940012813F336005452A4 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		341940022813F336005452A4 /* UILayoutPriority+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutPriority+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,7 @@
 		34193FE22813EB3D005452A4 /* HookahTimer */ = {
 			isa = PBXGroup;
 			children = (
+				34193FFB2813F305005452A4 /* Support */,
 				34193FF82813EC6F005452A4 /* Resources */,
 				34193FF72813EC64005452A4 /* Application */,
 				34193FE72813EB3D005452A4 /* ViewController.swift */,
@@ -75,6 +88,27 @@
 				34193FEC2813EB3F005452A4 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		34193FFB2813F305005452A4 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				34193FFC2813F310005452A4 /* AutoLayout */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		34193FFC2813F310005452A4 /* AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				34193FFD2813F336005452A4 /* AutoLayoutOperators.swift */,
+				34193FFE2813F336005452A4 /* Collection+NSLayoutConstraint.swift */,
+				34193FFF2813F336005452A4 /* Constraintable.swift */,
+				341940002813F336005452A4 /* NSLayoutConstraint+Extensions.swift */,
+				341940022813F336005452A4 /* UILayoutPriority+Extensions.swift */,
+				341940012813F336005452A4 /* UIView+Extensions.swift */,
+			);
+			path = AutoLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +181,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341940072813F337005452A4 /* UIView+Extensions.swift in Sources */,
+				341940032813F337005452A4 /* AutoLayoutOperators.swift in Sources */,
+				341940062813F337005452A4 /* NSLayoutConstraint+Extensions.swift in Sources */,
+				341940052813F337005452A4 /* Constraintable.swift in Sources */,
+				341940042813F337005452A4 /* Collection+NSLayoutConstraint.swift in Sources */,
 				34193FE82813EB3D005452A4 /* ViewController.swift in Sources */,
 				34193FE42813EB3D005452A4 /* AppDelegate.swift in Sources */,
+				341940082813F337005452A4 /* UILayoutPriority+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
